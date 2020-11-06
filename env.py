@@ -1,3 +1,4 @@
+from lang_types import Types
 import math
 import operator as op
 
@@ -35,9 +36,9 @@ def std():
         'min': min,
         'not': op.not_,
         'null?': lambda x: x == [],
-        'number?': lambda x: isinstance(x, Number),
+        'number?': lambda x: isinstance(x, Types.Number),
         'procedure?': callable,
         'round': round,
-        'symbol?': lambda x: isinstance(x, Symbol),
+        'symbol?': lambda x: isinstance(x, Types.Symbol),
     })
     return env
