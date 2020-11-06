@@ -57,9 +57,13 @@ def eval(token, env=None):
 
 def repl(prompt='tls.py> '):
     while True:
-        val = eval(parser(raw_input(prompt)))
-        if val is not None:
-            print(schemize(val))
+        try:
+            val = eval(parser(raw_input(prompt)))
+            if val is not None:
+                print(schemize(val))
+        except KeyboardInterrupt:
+            print("detected keyboard interrupt signal.")
+            return
 
 
 repl()
